@@ -3,6 +3,24 @@
    Cybersecurity Theme - Refined & Formal
    ======================================== */
 
+/* === TYPOGRAPHY SYSTEM ===
+   This design uses a professional 3-font hierarchy:
+   
+   1. HEADINGS (Inter/Roboto): 
+      - Modern, clean sans-serif for titles and headings
+      - High legibility and professional appearance
+      - Used in: h1, h2, h3, buttons, labels
+   
+   2. BODY TEXT (Open Sans/System UI):
+      - Highly legible sans-serif for body content
+      - Optimized for reading longer texts
+      - Used in: paragraphs, descriptions, links
+   
+   3. TECHNICAL/CODE (IBM Plex Mono):
+      - Professional monospace font for technical elements
+      - Used in: code blocks, console output, technical specs
+   ======================================== */
+
 /* === ROOT VARIABLES === */
 :root {
     /* Color Palette */
@@ -40,15 +58,23 @@
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
     
-    /* Typography */
-    --font-mono: 'Courier New', 'Consolas', 'Monaco', monospace;
-    --font-sans: 'Segoe UI', system-ui, sans-serif;
+    /* Typography - Professional 3-Font System */
+    --font-heading: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Open Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    
     --font-size-base: 16px;
     --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
     --font-size-lg: 1.125rem;
     --font-size-xl: 1.5rem;
     --font-size-2xl: 2rem;
     --font-size-3xl: 2.5rem;
+    
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
     
     /* Transitions */
     --transition-fast: 0.15s ease;
@@ -70,7 +96,7 @@ html {
 }
 
 body {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -79,6 +105,7 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-weight: var(--font-weight-normal);
 }
 
 /* === ACCESSIBILITY === */
@@ -184,20 +211,23 @@ header::before {
 }
 
 header h1 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-3xl);
-    font-weight: bold;
+    font-weight: var(--font-weight-bold);
     color: var(--primary-green);
     text-shadow: var(--shadow-glow);
     margin-bottom: var(--spacing-sm);
-    letter-spacing: 0.15em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
 .subtitle {
+    font-family: var(--font-body);
     font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-normal);
     color: var(--text-secondary);
     margin-bottom: var(--spacing-md);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
 }
 
 .github-link {
@@ -209,9 +239,10 @@ header h1 {
     border: var(--border-subtle);
     color: var(--primary-green);
     text-decoration: none;
+    font-family: var(--font-body);
     font-size: var(--font-size-sm);
-    font-weight: bold;
-    letter-spacing: 0.1em;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.05em;
     transition: all var(--transition-normal);
 }
 
@@ -270,10 +301,12 @@ header h1 {
 }
 
 .card h2 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: var(--primary-green);
     margin-bottom: var(--spacing-md);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -281,13 +314,18 @@ header h1 {
 }
 
 .card h3 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
     color: var(--text-secondary);
     margin-bottom: var(--spacing-sm);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
 }
 
 .card p {
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-normal);
     color: var(--text-white);
     line-height: 1.8;
     margin-bottom: var(--spacing-sm);
@@ -312,10 +350,10 @@ header h1 {
     background: var(--bg-primary);
     border: 3px solid var(--primary-green);
     color: var(--primary-green);
-    font-family: var(--font-mono);
+    font-family: var(--font-heading);
     font-size: var(--font-size-xl);
-    font-weight: bold;
-    letter-spacing: 0.1em;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     cursor: pointer;
     position: relative;
@@ -369,7 +407,9 @@ header h1 {
 }
 
 .requirements h3 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     color: var(--primary-green);
     margin-bottom: var(--spacing-sm);
 }
@@ -380,6 +420,7 @@ header h1 {
 }
 
 .requirements li {
+    font-family: var(--font-body);
     padding: var(--spacing-xs) 0;
     color: var(--text-white);
     font-size: var(--font-size-sm);
@@ -387,6 +428,7 @@ header h1 {
 
 /* === ALERTS === */
 .alert {
+    font-family: var(--font-body);
     padding: var(--spacing-md);
     border-left: 4px solid;
     margin: var(--spacing-sm) 0;
@@ -405,11 +447,13 @@ header h1 {
 }
 
 .features-section > h2 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
     color: var(--primary-green);
     text-align: center;
     margin-bottom: var(--spacing-lg);
-    letter-spacing: 0.15em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
 }
 
@@ -432,14 +476,18 @@ header h1 {
 }
 
 .feature-card h3 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-semibold);
     color: var(--primary-green);
     margin-bottom: var(--spacing-sm);
     font-size: var(--font-size-lg);
 }
 
 .feature-card p {
+    font-family: var(--font-body);
     color: var(--text-white);
     font-size: var(--font-size-sm);
+    line-height: 1.6;
 }
 
 /* === SPECS GRID === */
@@ -460,12 +508,15 @@ header h1 {
 }
 
 .spec-item strong {
+    font-family: var(--font-heading);
     color: var(--primary-green);
     font-size: var(--font-size-sm);
-    letter-spacing: 0.1em;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.03em;
 }
 
 .spec-item span {
+    font-family: var(--font-body);
     color: var(--text-white);
     font-size: var(--font-size-sm);
 }
@@ -500,20 +551,24 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
     font-size: var(--font-size-lg);
     box-shadow: var(--shadow-glow);
 }
 
 .instructions-list strong {
+    font-family: var(--font-heading);
     display: block;
     color: var(--primary-green);
     font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
     margin-bottom: var(--spacing-xs);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
 }
 
 .instructions-list p {
+    font-family: var(--font-body);
     color: var(--text-white);
     font-size: var(--font-size-sm);
     line-height: 1.6;
@@ -533,13 +588,14 @@ details[open] {
 }
 
 summary {
+    font-family: var(--font-heading);
     padding: var(--spacing-md);
     font-size: var(--font-size-lg);
-    font-weight: bold;
+    font-weight: var(--font-weight-semibold);
     color: var(--primary-green);
     cursor: pointer;
     user-select: none;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     transition: all var(--transition-fast);
 }
 
@@ -548,6 +604,7 @@ summary:hover {
 }
 
 details p {
+    font-family: var(--font-body);
     padding: 0 var(--spacing-md) var(--spacing-md);
     color: var(--text-white);
     font-size: var(--font-size-sm);
@@ -565,12 +622,14 @@ footer {
 }
 
 footer p {
+    font-family: var(--font-body);
     color: var(--text-secondary);
     font-size: var(--font-size-sm);
     margin-bottom: var(--spacing-xs);
 }
 
 footer a {
+    font-family: var(--font-body);
     color: var(--primary-green);
     text-decoration: none;
     transition: all var(--transition-fast);
@@ -641,6 +700,48 @@ footer strong {
 
 .loading {
     animation: loading 1.5s ease-in-out infinite;
+}
+
+/* === CODE AND TECHNICAL ELEMENTS === */
+code, kbd, pre, samp {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: var(--bg-secondary);
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--light-green);
+}
+
+pre {
+    padding: var(--spacing-md);
+    overflow-x: auto;
+    border-left: 3px solid var(--primary-green);
+    line-height: 1.5;
+}
+
+.console-output,
+.terminal-text {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-sm);
+    color: var(--terminal-green);
+}
+
+/* === BUTTON STYLES === */
+button, .button {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: 0.02em;
+}
+
+/* === INPUT STYLES === */
+input, select, textarea {
+    font-family: var(--font-body);
+    font-size: var(--font-size-md);
+}
+
+/* === LIST STYLES === */
+ul, ol {
+    font-family: var(--font-body);
 }
 
 /* === PRINT STYLES === */
