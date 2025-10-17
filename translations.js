@@ -73,6 +73,14 @@ const translations = {
         faq4Question: "WHAT DO I DO IF INSTALLATION FAILS?",
         faq4Answer: "Try holding down the BOOT button on the ESP32 while connecting USB, then release and try again.",
         
+        // Donate
+        donateTitle: ">> SUPPORT THE PROJECT",
+        donateDescription: "If you find this project useful, consider supporting its development. Your donations help maintain and improve the firmware!",
+        donateBitcoin: "Bitcoin (BTC)",
+        donateEthereum: "Ethereum (ETH)",
+        donateMonero: "Monero (XMR)",
+        donateNote: "⚡ All donations are greatly appreciated and help keep this project alive!",
+        
         // Footer
         footerDeveloped: "Developed by",
         footerDisclaimer: "This firmware is for educational purposes only. Use it responsibly."
@@ -149,6 +157,14 @@ const translations = {
         faq3Answer: "Sí, el flasheo sobrescribirá todo el contenido de la memoria flash del ESP32.",
         faq4Question: "¿QUÉ HAGO SI FALLA LA INSTALACIÓN?",
         faq4Answer: "Intenta mantener presionado el botón BOOT en el ESP32 mientras conectas el USB, luego suéltalo y vuelve a intentar.",
+        
+        // Donate
+        donateTitle: ">> APOYA EL PROYECTO",
+        donateDescription: "Si encuentras útil este proyecto, considera apoyar su desarrollo. ¡Tus donaciones ayudan a mantener y mejorar el firmware!",
+        donateBitcoin: "Bitcoin (BTC)",
+        donateEthereum: "Ethereum (ETH)",
+        donateMonero: "Monero (XMR)",
+        donateNote: "⚡ ¡Todas las donaciones son muy apreciadas y ayudan a mantener este proyecto vivo!",
         
         // Footer
         footerDeveloped: "Desarrollado por",
@@ -309,6 +325,19 @@ class LanguageSwitcher {
             }
         });
         
+        // Donate Section
+        this.updateElement('.donate-section h2', t.donateTitle);
+        const donateDesc = document.querySelector('.donate-section > .card > p:first-of-type');
+        if (donateDesc) donateDesc.textContent = t.donateDescription;
+        
+        const cryptoCards = document.querySelectorAll('.crypto-card h3');
+        if (cryptoCards[0]) cryptoCards[0].textContent = t.donateBitcoin;
+        if (cryptoCards[1]) cryptoCards[1].textContent = t.donateEthereum;
+        if (cryptoCards[2]) cryptoCards[2].textContent = t.donateMonero;
+        
+        const donateNote = document.querySelector('.donate-note');
+        if (donateNote) donateNote.textContent = t.donateNote;
+        
         // Footer
         const footerP = document.querySelectorAll('footer p');
         if (footerP[0]) {
@@ -329,10 +358,22 @@ class LanguageSwitcher {
 }
 
 // Initialize language switcher when DOM is ready
+let languageSwitcherInstance = null;
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        new LanguageSwitcher();
+        languageSwitcherInstance = new LanguageSwitcher();
     });
 } else {
-    new LanguageSwitcher();
+    languageSwitcherInstance = new LanguageSwitcher();
+}
+
+// Global function for language selector dropdown
+function changeLanguage(lang) {
+    if (languageSwitcherInstance) {
+        languageSwitcherInstance.switchLanguage(lang);
+    } else {
+        languageSwitcherInstance = new LanguageSwitcher();
+        languageSwitcherInstance.switchLanguage(lang);
+    }
 }

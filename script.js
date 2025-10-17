@@ -196,3 +196,113 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('%c', 'font-size: 1px; padding: 100px 200px; background: url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 50\'%3E%3Ctext x=\'10\' y=\'35\' font-family=\'monospace\' font-size=\'30\' fill=\'%2300ff41\'%3ET0p1%3C/text%3E%3C/svg%3E") no-repeat;');
 });
 
+// Copy to clipboard function for crypto addresses
+function copyToClipboard(elementId) {
+    const element = document.getElementById(elementId);
+    const text = element.textContent;
+    
+    // Modern clipboard API
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+            showCopyFeedback(element, '✓ Copied!');
+            console.log('%c[CLIPBOARD] Address copied successfully', 'color: #00ff41; font-family: monospace;');
+        }).catch(err => {
+            console.error('%c[ERROR] Failed to copy:', err, 'color: #ff003c; font-family: monospace;');
+            fallbackCopy(text, element);
+        });
+    } else {
+        // Fallback for older browsers
+        fallbackCopy(text, element);
+    }
+}
+
+// Fallback copy method
+function fallbackCopy(text, element) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showCopyFeedback(element, '✓ Copied!');
+        console.log('%c[CLIPBOARD] Address copied (fallback)', 'color: #00ff41; font-family: monospace;');
+    } catch (err) {
+        console.error('%c[ERROR] Copy failed:', err, 'color: #ff003c; font-family: monospace;');
+        showCopyFeedback(element, '✗ Failed', true);
+    }
+    
+    document.body.removeChild(textArea);
+}
+
+// Show visual feedback when copying
+function showCopyFeedback(element, message, isError = false) {
+    const originalText = element.textContent;
+    const originalColor = element.style.color;
+    
+    element.textContent = message;
+    element.style.color = isError ? '#ff003c' : '#39ff14';
+    element.style.fontWeight = 'bold';
+    
+    setTimeout(() => {
+        element.textContent = originalText;
+        element.style.color = originalColor;
+        element.style.fontWeight = '';
+    }, 2000);
+}
+
+// Generate QR Codes for crypto donations
+function generateQRCodes() {
+    // Check if QRCode library is loaded
+    if (typeof QRCode === 'undefined') {
+        console.error('%c[QR] QRCode library not loaded', 'color: #ff003c; font-family: monospace;');
+        return;
+    }
+
+    // Crypto addresses
+    const cryptoData = {
+        btc: {
+            address: 'bc1qepjcrvlxqunmnzjtrckf623v26zuv629e5v0lj',
+            uri: 'bitcoin:bc1qepjcrvlxqunmnzjtrckf623v26zuv629e5v0lj',
+            color: '#00ff41'
+        },
+        eth: {
+            address: '0xc4991fb99d6d0cd126a173b9e7156b57f994ce2f',
+            uri: 'ethereum:0xc4991fb99d6d0cd126a173b9e7156b57f994ce2f',
+            color: '#00d9ff'
+        },
+        xmr: {
+            address: '4AaD8rqFPwBhKSbApUFLuY9cy8ii9gYZRAxTFCnii7Sieb1zibacTKqJJY4CAvt18PMjyiy8LgAhuc4LKjUk68mp2BBsCy7',
+            uri: 'monero:4AaD8rqFPwBhKSbApUFLuY9cy8ii9gYZRAxTFCnii7Sieb1zibacTKqJJY4CAvt18PMjyiy8LgAhuc4LKjUk68mp2BBsCy7',
+            color: '#ff6600'
+        }
+    };
+
+    // Generate each QR code
+    Object.keys(cryptoData).forEach(crypto => {
+        const container = document.getElementById(`qr-${crypto}`);
+        if (container && container.innerHTML === '') {
+            try {
+                new QRCode(container, {
+                    text: cryptoData[crypto].uri,
+                    width: 200,
+                    height: 200,
+                    colorDark: cryptoData[crypto].color,
+                    colorLight: '#000000',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                console.log(`%c[QR] Generated ${crypto.toUpperCase()} QR code`, 'color: #00ff41; font-family: monospace;');
+            } catch (error) {
+                console.error(`%c[QR] Error generating ${crypto.toUpperCase()} QR:`, error, 'color: #ff003c; font-family: monospace;');
+            }
+        }
+    });
+}
+
+// Initialize QR codes when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait a bit for QRCode library to be fully loaded
+    setTimeout(generateQRCodes, 500);
+});

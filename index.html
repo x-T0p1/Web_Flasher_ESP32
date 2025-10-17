@@ -57,6 +57,7 @@
     
     <!-- Scripts -->
     <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <script src="translations.js"></script>
     
     <!-- JSON-LD Structured Data -->
@@ -86,6 +87,12 @@
     <div class="container">
         <!-- Header -->
         <header>
+            <div class="language-selector">
+                <select id="languageSelect" onchange="changeLanguage(this.value)">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="es">🇪🇸 Español</option>
+                </select>
+            </div>
             <div class="header-content">
                 <h1>🛡️ T0P1 FIRMWARE</h1>
                 <p class="subtitle">CYBERSECURITY FIRMWARE FOR ESP32-2432S028R (CYD)</p>
@@ -257,6 +264,63 @@
                     </details>
                 </div>
             </section>
+
+            <!-- Donate Section -->
+            <section class="donate-section">
+                <div class="card">
+                    <h2>💰 SUPPORT THE PROJECT</h2>
+                    <p>If you find this project useful, consider supporting its development. Your donations help maintain and improve the firmware!</p>
+                    
+                    <div class="crypto-grid">
+                        <!-- Bitcoin -->
+                        <div class="crypto-card">
+                            
+                            <h3>Bitcoin (BTC)</h3>
+                            <div class="qr-container">
+                                <div id="qr-btc" class="qr-code"></div>
+                            </div>
+                            <div class="crypto-address">
+                                <code id="btc-address">bc1qepjcrvlxqunmnzjtrckf623v26zuv629e5v0lj</code>
+                                <button class="copy-btn" onclick="copyToClipboard('btc-address')" title="Copy address">
+                                    📋
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Ethereum -->
+                        <div class="crypto-card">
+                        
+                            <h3>Ethereum (ETH)</h3>
+                            <div class="qr-container">
+                                <div id="qr-eth" class="qr-code"></div>
+                            </div>
+                            <div class="crypto-address">
+                                <code id="eth-address">0xc4991fb99d6d0cd126a173b9e7156b57f994ce2f</code>
+                                <button class="copy-btn" onclick="copyToClipboard('eth-address')" title="Copy address">
+                                    📋
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Monero -->
+                        <div class="crypto-card">
+                            
+                            <h3>Monero (XMR)</h3>
+                            <div class="qr-container">
+                                <div id="qr-xmr" class="qr-code"></div>
+                            </div>
+                            <div class="crypto-address">
+                                <code id="xmr-address">4AaD8rqFPwBhKSbApUFLuY9cy8ii9gYZRAxTFCnii7Sieb1zibacTKqJJY4CAvt18PMjyiy8LgAhuc4LKjUk68mp2BBsCy7</code>
+                                <button class="copy-btn" onclick="copyToClipboard('xmr-address')" title="Copy address">
+                                    📋
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="donate-note">⚡ All donations are greatly appreciated and help keep this project alive!</p>
+                </div>
+            </section>
         </main>
 
         <!-- Footer -->
@@ -269,5 +333,16 @@
     </div>
 
     <script src="script.js"></script>
+    
+    <!-- Sync language selector with saved preference -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferredLanguage') || 'en';
+            const selectElement = document.getElementById('languageSelect');
+            if (selectElement) {
+                selectElement.value = savedLang;
+            }
+        });
+    </script>
 </body>
 </html>

@@ -205,6 +205,46 @@ header::before {
     50% { left: 100%; }
 }
 
+/* === LANGUAGE SELECTOR === */
+.language-selector {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 10;
+}
+
+.language-selector select {
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--bg-secondary);
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    outline: none;
+    box-shadow: var(--shadow-glow);
+}
+
+.language-selector select:hover {
+    background: var(--bg-highlight);
+    box-shadow: var(--shadow-strong);
+    transform: translateY(-2px);
+}
+
+.language-selector select:focus {
+    border-color: var(--light-green);
+    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.2);
+}
+
+.language-selector select option {
+    background: var(--bg-primary);
+    color: var(--primary-green);
+    padding: var(--spacing-sm);
+}
+
 .header-content {
     position: relative;
     z-index: 1;
@@ -652,6 +692,189 @@ footer strong {
     font-style: italic;
 }
 
+/* === DONATE SECTION === */
+.donate-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.crypto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.crypto-card {
+    background: var(--bg-secondary);
+    border: var(--border-subtle);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.crypto-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, var(--primary-green), var(--accent-cyan));
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--transition-normal);
+}
+
+.crypto-card:hover {
+    border-color: var(--primary-green);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-5px);
+}
+
+.crypto-card:hover::before {
+    opacity: 0.15;
+}
+
+.crypto-icon {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-green);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: var(--shadow-glow);
+}
+
+.crypto-card h3 {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.05em;
+}
+
+.qr-container {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background: #000000;
+    border: 3px solid var(--primary-green);
+    display: inline-block;
+    box-shadow: var(--shadow-glow), 
+                0 0 40px rgba(0, 255, 65, 0.3),
+                inset 0 0 20px rgba(0, 255, 65, 0.1);
+    position: relative;
+    border-radius: 8px;
+}
+
+.qr-container::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, 
+        var(--primary-green), 
+        var(--accent-cyan), 
+        var(--primary-green));
+    border-radius: 8px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity var(--transition-normal);
+    animation: borderPulse 3s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.3; }
+}
+
+.crypto-card:hover .qr-container::before {
+    opacity: 0.5;
+}
+
+.qr-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
+}
+
+/* Hide the img element, keep only canvas */
+.qr-code img {
+    display: none !important;
+}
+
+.qr-code canvas {
+    display: block !important;
+    width: 200px !important;
+    height: 200px !important;
+    image-rendering: crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
+}
+
+.crypto-address {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: var(--bg-primary);
+    border: 1px solid var(--primary-green);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+    border-radius: 4px;
+}
+
+.crypto-address code {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--primary-green);
+    word-break: break-all;
+    flex: 1;
+    text-align: left;
+}
+
+.copy-btn {
+    background: var(--primary-green);
+    border: none;
+    padding: var(--spacing-xs);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all var(--transition-fast);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+}
+
+.copy-btn:hover {
+    background: var(--light-green);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+.donate-note {
+    font-family: var(--font-body);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid rgba(0, 255, 65, 0.2);
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
     :root {
@@ -660,6 +883,10 @@ footer strong {
     }
     
     .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .crypto-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
@@ -673,6 +900,16 @@ footer strong {
         font-size: var(--font-size-base);
     }
     
+    .language-selector {
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+    
+    .language-selector select {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    
     .flash-button {
         font-size: var(--font-size-lg);
         padding: var(--spacing-sm) var(--spacing-lg);
@@ -684,6 +921,28 @@ footer strong {
     
     .specs-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .crypto-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .qr-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .qr-code {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .qr-code canvas {
+        width: 160px !important;
+        height: 160px !important;
+    }
+    
+    .crypto-address code {
+        font-size: 0.65rem;
     }
     
     .instructions-list li::before {
