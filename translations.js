@@ -223,7 +223,7 @@ class LanguageSwitcher {
         const titleElement = document.querySelector('.header-content h1');
         if (titleElement) {
             const titleText = titleElement.textContent.replace(/[_\s]/g, '').replace('T0P1FIRMWARE', '');
-            titleElement.innerHTML = `🛡️ ${t.title}`;
+            titleElement.innerHTML = `${t.title}`;
         }
         
         this.updateElement('.subtitle', t.subtitle);

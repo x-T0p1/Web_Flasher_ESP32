@@ -1,10 +1,31 @@
 ﻿<!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Página No Encontrada | T0p1 Firmware</title>
+    <title>404 - Page Not Found | T0p1 Firmware</title>
+    
+    <!-- Google Fonts - Professional Typography System -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary-green: #00ff41;
+            --dark-green: #003b00;
+            --light-green: #39ff14;
+            --accent-cyan: #00d9ff;
+            --bg-primary: #000000;
+            --bg-secondary: #0a0e0a;
+            --text-primary: #00ff41;
+            --text-white: #e0e0e0;
+            --shadow-glow: 0 0 20px rgba(0, 255, 65, 0.3);
+            --font-heading: 'Inter', 'Roboto', sans-serif;
+            --font-body: 'Open Sans', 'Segoe UI', sans-serif;
+            --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,140 +33,215 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: -2;
+            opacity: 0.5;
+        }
+
+        /* Scanlines */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 255, 65, 0.03) 2px,
+                rgba(0, 255, 65, 0.03) 4px
+            );
+            z-index: 9999;
+            pointer-events: none;
+            animation: scanlines 8s linear infinite;
+        }
+
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(20px); }
         }
 
         .container {
             text-align: center;
-            max-width: 600px;
+            max-width: 800px;
+            background: rgba(5, 15, 5, 0.95);
+            border: 2px solid var(--primary-green);
+            padding: 60px 40px;
+            box-shadow: var(--shadow-glow), 0 4px 20px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 1;
         }
 
         .error-code {
+            font-family: var(--font-heading);
             font-size: 10rem;
-            font-weight: bold;
+            font-weight: 700;
             line-height: 1;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-            animation: glitch 1s infinite;
+            color: var(--primary-green);
+            text-shadow: var(--shadow-glow);
+            margin-bottom: 20px;
+            animation: glitch 3s infinite;
         }
 
         @keyframes glitch {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
+            0%, 100% { 
+                transform: translate(0);
+                text-shadow: var(--shadow-glow);
+            }
+            20% { 
+                transform: translate(-3px, 3px);
+                text-shadow: 3px -3px 0 var(--accent-cyan), -3px 3px 0 #ff003c;
+            }
+            40% { 
+                transform: translate(-3px, -3px);
+                text-shadow: -3px 3px 0 var(--accent-cyan), 3px -3px 0 #ff003c;
+            }
+            60% { 
+                transform: translate(3px, 3px);
+                text-shadow: 3px 3px 0 var(--accent-cyan), -3px -3px 0 #ff003c;
+            }
+            80% { 
+                transform: translate(3px, -3px);
+                text-shadow: -3px -3px 0 var(--accent-cyan), 3px 3px 0 #ff003c;
+            }
         }
 
         .error-message {
-            font-size: 2rem;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
             margin: 20px 0;
-            opacity: 0.95;
+            color: var(--primary-green);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .error-description {
+            font-family: var(--font-body);
             font-size: 1.2rem;
             margin: 20px 0 40px;
-            opacity: 0.85;
+            color: var(--text-white);
+            line-height: 1.6;
         }
 
-        .button-container {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
+        .terminal-text {
+            font-family: var(--font-mono);
+            color: var(--primary-green);
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--bg-primary);
+            border: 1px solid var(--primary-green);
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.8;
         }
 
-        .btn {
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
+        .terminal-text::before {
+            content: '> ';
+            color: var(--light-green);
+        }
+
+        .btn-home {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            padding: 18px 40px;
+            background: var(--bg-primary);
+            border: 3px solid var(--primary-green);
+            color: var(--primary-green);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
             transition: all 0.3s ease;
-            color: white;
+            box-shadow: var(--shadow-glow);
         }
 
-        .btn-primary {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
+        .btn-home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-green);
+            transition: left 0.3s ease;
+            z-index: -1;
         }
 
-        .btn-primary:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        .btn-home:hover::before {
+            left: 0;
         }
 
-        .btn-secondary {
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
+        .btn-home:hover {
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.5);
+            transform: scale(1.05);
         }
 
-        .btn-secondary:hover {
-            background: rgba(0, 0, 0, 0.3);
-            transform: translateY(-2px);
+        .btn-home:active {
+            transform: scale(0.98);
         }
 
-        .suggestions {
-            margin-top: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+        .icon {
+            font-size: 1.5em;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .suggestions h3 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .suggestions ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .suggestions li {
-            padding: 10px 0;
-            font-size: 1.1rem;
-        }
-
-        .suggestions a {
-            color: white;
-            text-decoration: underline;
-            transition: opacity 0.3s;
-        }
-
-        .suggestions a:hover {
-            opacity: 0.8;
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
             .error-code {
                 font-size: 6rem;
             }
 
             .error-message {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             .error-description {
                 font-size: 1rem;
             }
 
-            .btn {
-                padding: 12px 30px;
+            .btn-home {
+                padding: 15px 30px;
                 font-size: 1rem;
             }
         }
@@ -154,30 +250,22 @@
 <body>
     <div class="container">
         <div class="error-code">404</div>
-        <h1 class="error-message">¡Oops! Página No Encontrada</h1>
+        <h1 class="error-message"> ACCESS DENIED</h1>
         <p class="error-description">
-            Lo sentimos, la página que buscas no existe o ha sido movida.
+            The requested page does not exist in the system database.
         </p>
 
-        <div class="button-container">
-            <a href="/WebFlasher/" class="btn btn-primary">
-                <span>🏠</span>
-                <span>Ir al Inicio</span>
-            </a>
-            <a href="javascript:history.back()" class="btn btn-secondary">
-                <span>⬅️</span>
-                <span>Volver Atrás</span>
-            </a>
+        <div class="terminal-text">
+            ERROR_CODE: 404_NOT_FOUND<br>
+            STATUS: RESOURCE_UNAVAILABLE<br>
+            LOCATION: UNKNOWN<br>
+            SUGGESTION: RETURN_TO_MAIN_TERMINAL
         </div>
 
-        <div class="suggestions">
-            <h3>🔍 ¿Qué estabas buscando?</h3>
-            <ul>
-                <li>➡️ <a href="/WebFlasher/">Web Flasher Principal</a></li>
-                <li>➡️ <a href="/WebFlasher/README.md">Documentación</a></li>
-                <li>➡️ <a href="https://github.com/x-T0p1/Firmware-T0p1-Esp32">Repositorio GitHub</a></li>
-            </ul>
-        </div>
+        <a href="index.html" class="btn-home">
+            <span class="icon"></span>
+            <span>RETURN TO MAIN</span>
+        </a>
     </div>
 </body>
 </html>
