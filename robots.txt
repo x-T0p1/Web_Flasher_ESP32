@@ -1,0 +1,11 @@
+﻿# robots.txt for T0p1 Firmware Web Flasher
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: http://localhost/WebFlasher/sitemap.xml
+
+# Disallow firmware directory from indexing
+User-agent: *
+Disallow: /firmware/

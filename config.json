@@ -1,0 +1,65 @@
+﻿{
+  "project": {
+    "name": "T0p1 Firmware",
+    "version": "0.0.1",
+    "description": "Cybersecurity Firmware para ESP32-2432S028R (CYD)",
+    "author": "T0p1",
+    "github": "https://github.com/x-T0p1/Firmware-T0p1-Esp32",
+    "website": "http://localhost/WebFlasher/"
+  },
+  "device": {
+    "name": "ESP32-2432S028R",
+    "nickname": "Cheap Yellow Display (CYD)",
+    "chip": "ESP32",
+    "display": "2.8\" TFT 320x240 ILI9341",
+    "touch": "XPT2046 Resistive",
+    "processor": "ESP32 Dual Core 240MHz",
+    "ram": "520KB",
+    "flash": "4MB"
+  },
+  "features": [
+    {
+      "icon": "📡",
+      "title": "WiFi Scanner",
+      "description": "Escaneo completo de redes WiFi con análisis detallado de canales, RSSI y seguridad."
+    },
+    {
+      "icon": "🛡️",
+      "title": "Deauth Detection",
+      "description": "Detección de ataques de desautenticación en tiempo real para identificar amenazas."
+    },
+    {
+      "icon": "📱",
+      "title": "Touch Interface",
+      "description": "Interfaz táctil intuitiva con menú completo para navegación fácil."
+    },
+    {
+      "icon": "🔵",
+      "title": "Bluetooth",
+      "description": "Soporte para Bluetooth clásico y BLE con escaneo de dispositivos."
+    },
+    {
+      "icon": "💾",
+      "title": "SD Card Support",
+      "description": "Almacenamiento de logs y datos en tarjeta SD integrada."
+    },
+    {
+      "icon": "🌐",
+      "title": "Web Server",
+      "description": "Servidor web integrado para control remoto y configuración."
+    }
+  ],
+  "requirements": {
+    "browsers": ["Chrome 89+", "Edge 89+", "Opera 75+"],
+    "device": "ESP32-2432S028R conectado por USB",
+    "drivers": "CH340/CP2102 (si es necesario)"
+  },
+  "social": {
+    "github": "https://github.com/x-T0p1",
+    "repository": "https://github.com/x-T0p1/Firmware-T0p1-Esp32"
+  },
+  "analytics": {
+    "enabled": false,
+    "googleAnalyticsId": ""
+  }
+}

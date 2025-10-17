@@ -1,0 +1,37 @@
+﻿# Archivos binarios compilados
+*.bin
+firmware/*.bin
+
+# Archivos de build
+build/
+.build/
+
+# Arduino
+*.hex
+*.elf
+*.map
+
+# Logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*~
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Node modules (si usas npm en el futuro)
+node_modules/
+
+# Archivos de configuración local
+config.local.*

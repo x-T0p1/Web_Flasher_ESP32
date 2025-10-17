@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>T0p1 Firmware - ESP32 CYD Web Flasher | Cybersecurity Firmware</title>
+    <meta name="title" content="T0p1 Firmware - ESP32 CYD Web Flasher | Cybersecurity Firmware">
+    <meta name="description" content="Professional web-based firmware flasher for ESP32-2432S028R (CYD). Flash cybersecurity firmware directly from your browser with WiFi scanner, deauth detection, and touch interface.">
+    <meta name="keywords" content="ESP32, CYD, firmware, flasher, web serial, cybersecurity, WiFi scanner, ESP32-2432S028R, deauth detection, hacking, penetration testing, security tools">
+    <meta name="author" content="T0p1">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/x-T0p1/Firmware-T0p1-Esp32">
+    <meta property="og:title" content="T0p1 Firmware - ESP32 CYD Web Flasher">
+    <meta property="og:description" content="Flash cybersecurity firmware to ESP32-2432S028R directly from your browser. Features WiFi scanning, deauth detection, and more.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/x-T0p1/Firmware-T0p1-Esp32/main/preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://github.com/x-T0p1/Firmware-T0p1-Esp32">
+    <meta property="twitter:title" content="T0p1 Firmware - ESP32 CYD Web Flasher">
+    <meta property="twitter:description" content="Flash cybersecurity firmware to ESP32-2432S028R directly from your browser.">
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/x-T0p1/Firmware-T0p1-Esp32/main/preview.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost/WebFlasher/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛡️</text></svg>">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest-pwa.json">
+    <meta name="theme-color" content="#00ff41">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="T0p1 Flasher">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style-professional.css">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    
+    <!-- Scripts -->
+    <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+    <script src="translations.js"></script>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "T0p1 Firmware",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web Browser",
+        "description": "Professional web-based firmware flasher for ESP32-2432S028R with cybersecurity features",
+        "author": {
+            "@type": "Person",
+            "name": "T0p1"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "softwareRequirements": "Chrome, Edge, or Opera browser with Web Serial API support",
+        "browserRequirements": "Requires Web Serial API"
+    }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>🛡️ T0P1 FIRMWARE</h1>
+                <p class="subtitle">CYBERSECURITY FIRMWARE FOR ESP32-2432S028R (CYD)</p>
+                <a href="https://github.com/x-T0p1/Firmware-T0p1-Esp32" target="_blank" class="github-link">
+                    <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                    GITHUB REPOSITORY
+                </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Flasher Section -->
+            <section class="flasher-section">
+                <div class="card highlight">
+                    <h2>⚡ FLASH FIRMWARE</h2>
+                    <p>Connect your ESP32 CYD via USB and click the button to install the firmware directly from your browser.</p>
+                    
+                    <div class="flash-button-container">
+                        <esp-web-install-button manifest="./manifest.json">
+                            <button slot="activate" class="flash-button">
+                                <span class="button-icon">🔌</span>
+                                <span>CONNECT & FLASH</span>
+                            </button>
+                            <span slot="unsupported">
+                                <div class="alert alert-error">
+                                    ⚠️ Your browser does not support Web Serial API. Use Chrome, Edge or Opera.
+                                </div>
+                            </span>
+                            <span slot="not-allowed">
+                                <div class="alert alert-error">
+                                    ⚠️ You don't have permission to access the serial port. Check your browser settings.
+                                </div>
+                            </span>
+                        </esp-web-install-button>
+                    </div>
+
+                    <div class="requirements">
+                        <h3>📋 REQUIREMENTS</h3>
+                        <ul>
+                            <li>✅ Compatible browser: Chrome, Edge, Opera (with Web Serial API)</li>
+                            <li>✅ ESP32-2432S028R (CYD) connected via USB</li>
+                            <li>✅ CH340/CP2102 driver installed (if necessary)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section class="features-section">
+                <h2>✨ FEATURES</h2>
+                <div class="features-grid">
+                    <div class="card feature-card">
+                        <div class="feature-icon">📡</div>
+                        <h3>WIFI SCANNER</h3>
+                        <p>Complete WiFi network scanning with detailed channel, RSSI and security analysis.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>DEAUTH DETECTION</h3>
+                        <p>Real-time deauthentication attack detection to identify threats.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>TOUCH INTERFACE</h3>
+                        <p>Intuitive touch interface with complete menu for easy navigation.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="feature-icon">🔵</div>
+                        <h3>BLUETOOTH</h3>
+                        <p>Support for classic Bluetooth and BLE with device scanning.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="feature-icon">💾</div>
+                        <h3>SD CARD SUPPORT</h3>
+                        <p>Storage of logs and data on integrated SD card.</p>
+                    </div>
+                    <div class="card feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>WEB SERVER</h3>
+                        <p>Integrated web server for remote control and configuration.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Specs Section -->
+            <section class="specs-section">
+                <div class="card">
+                    <h2>🔧 TECHNICAL SPECIFICATIONS</h2>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <strong>BOARD:</strong>
+                            <span>ESP32-2432S028R (Cheap Yellow Display)</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>DISPLAY:</strong>
+                            <span>2.8" TFT 320x240 ILI9341</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>TOUCH:</strong>
+                            <span>XPT2046 Resistive</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>PROCESSOR:</strong>
+                            <span>ESP32 Dual Core 240MHz</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>MEMORY:</strong>
+                            <span>520KB RAM, 4MB Flash</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>CONNECTIVITY:</strong>
+                            <span>WiFi 802.11 b/g/n, Bluetooth 4.2</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Instructions Section -->
+            <section class="instructions-section">
+                <div class="card">
+                    <h2>📖 INSTALLATION INSTRUCTIONS</h2>
+                    <ol class="instructions-list">
+                        <li>
+                            <strong>CONNECT YOUR ESP32 CYD</strong>
+                            <p>Connect the device to your computer using a USB cable. Make sure the drivers are installed.</p>
+                        </li>
+                        <li>
+                            <strong>CLICK "CONNECT & FLASH"</strong>
+                            <p>The browser will ask you to select the correct COM port for your ESP32.</p>
+                        </li>
+                        <li>
+                            <strong>SELECT THE PORT</strong>
+                            <p>Look for something like "USB Serial Port" or "CP2102" in the list and select it.</p>
+                        </li>
+                        <li>
+                            <strong>INSTALL THE FIRMWARE</strong>
+                            <p>Click "Install" and wait for the process to finish (may take 1-2 minutes).</p>
+                        </li>
+                        <li>
+                            <strong>DONE!</strong>
+                            <p>Once completed, the ESP32 will automatically restart with the new firmware.</p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <div class="card">
+                    <h2>❓ FREQUENTLY ASKED QUESTIONS</h2>
+                    <details>
+                        <summary>WHAT BROWSERS ARE COMPATIBLE?</summary>
+                        <p>Chrome, Edge, and Opera in their latest versions. Firefox and Safari do not yet support Web Serial API.</p>
+                    </details>
+                    <details>
+                        <summary>DO I NEED TO INSTALL DRIVERS?</summary>
+                        <p>On Windows, you may need to install CH340 or CP2102 drivers depending on your ESP32's USB chip.</p>
+                    </details>
+                    <details>
+                        <summary>WILL THE PROCESS ERASE MY DATA?</summary>
+                        <p>Yes, flashing will overwrite all content in the ESP32's flash memory.</p>
+                    </details>
+                    <details>
+                        <summary>WHAT DO I DO IF INSTALLATION FAILS?</summary>
+                        <p>Try holding down the BOOT button on the ESP32 while connecting USB, then release and try again.</p>
+                    </details>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Developed by <strong>T0p1</strong> | 
+               <a href="https://github.com/x-T0p1/Firmware-T0p1-Esp32" target="_blank">GitHub</a>
+            </p>
+            <p class="disclaimer">This firmware is for educational purposes only. Use it responsibly.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
