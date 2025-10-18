@@ -757,12 +757,12 @@ footer strong {
 .qr-container {
     margin: var(--spacing-md) 0;
     padding: var(--spacing-md);
-    background: #000000;
+    background: #ffffff;
     border: 3px solid var(--primary-green);
     display: inline-block;
     box-shadow: var(--shadow-glow), 
                 0 0 40px rgba(0, 255, 65, 0.3),
-                inset 0 0 20px rgba(0, 255, 65, 0.1);
+                inset 0 0 20px rgba(0, 255, 65, 0.05);
     position: relative;
     border-radius: 8px;
 }
@@ -795,25 +795,10 @@ footer strong {
 }
 
 .qr-code {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     width: 200px;
     height: 200px;
-    image-rendering: crisp-edges;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: pixelated;
-}
-
-/* Hide the img element, keep only canvas */
-.qr-code img {
-    display: none !important;
-}
-
-.qr-code canvas {
-    display: block !important;
-    width: 200px !important;
-    height: 200px !important;
+    object-fit: contain;
     image-rendering: crisp-edges;
     image-rendering: -moz-crisp-edges;
     image-rendering: pixelated;
@@ -934,11 +919,6 @@ footer strong {
     .qr-code {
         width: 160px;
         height: 160px;
-    }
-    
-    .qr-code canvas {
-        width: 160px !important;
-        height: 160px !important;
     }
     
     .crypto-address code {

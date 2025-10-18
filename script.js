@@ -253,7 +253,8 @@ function showCopyFeedback(element, message, isError = false) {
     }, 2000);
 }
 
-// Generate QR Codes for crypto donations
+// Generate QR Codes for crypto donations - DISABLED (using static images instead)
+/*
 function generateQRCodes() {
     // Check if QRCode library is loaded
     if (typeof QRCode === 'undefined') {
@@ -306,3 +307,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Wait a bit for QRCode library to be fully loaded
     setTimeout(generateQRCodes, 500);
 });
+*/
