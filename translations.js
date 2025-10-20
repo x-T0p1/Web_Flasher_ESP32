@@ -7,7 +7,7 @@ const translations = {
         githubLink: "GITHUB REPOSITORY",
         
         // Flash Section
-        flashTitle: ">> FLASH FIRMWARE",
+        flashTitle: "FLASH FIRMWARE",
         flashDescription: "Connect your ESP32 CYD via USB and click the button to install the firmware directly from your browser.",
         flashButton: "CONNECT & FLASH",
         flashUnsupported: "⚠️ Your browser does not support Web Serial API. Use Chrome, Edge or Opera.",
@@ -15,9 +15,9 @@ const translations = {
         
         // Requirements
         requirementsTitle: "REQUIREMENTS",
-        requirement1: "✅ Compatible browser: Chrome, Edge, Opera (with Web Serial API)",
-        requirement2: "✅ ESP32-2432S028R (CYD) connected via USB",
-        requirement3: "✅ CH340/CP2102 driver installed (if necessary)",
+        requirement1: "Compatible browser: Chrome, Edge, Opera (with Web Serial API)",
+        requirement2: "ESP32-2432S028R (CYD) connected via USB",
+        requirement3: "CH340/CP2102 driver installed (if necessary)",
         
         // Features
         featuresTitle: "FEATURES",
@@ -35,7 +35,7 @@ const translations = {
         feature6Desc: "Integrated web server for remote control and configuration.",
         
         // Specs
-        specsTitle: ">> TECHNICAL SPECIFICATIONS",
+        specsTitle: "TECHNICAL SPECIFICATIONS",
         specBoard: "BOARD",
         specBoardValue: "ESP32-2432S028R (Cheap Yellow Display)",
         specDisplay: "DISPLAY",
@@ -50,7 +50,7 @@ const translations = {
         specConnectivityValue: "WiFi 802.11 b/g/n, Bluetooth 4.2",
         
         // Instructions
-        instructionsTitle: ">> INSTALLATION INSTRUCTIONS",
+        instructionsTitle: "INSTALLATION INSTRUCTIONS",
         instruction1Title: "CONNECT YOUR ESP32 CYD",
         instruction1Desc: "Connect the device to your computer using a USB cable. Make sure the drivers are installed.",
         instruction2Title: "CLICK \"CONNECT & FLASH\"",
@@ -63,7 +63,7 @@ const translations = {
         instruction5Desc: "Once completed, the ESP32 will automatically restart with the new firmware.",
         
         // FAQ
-        faqTitle: ">> FREQUENTLY ASKED QUESTIONS",
+        faqTitle: "FREQUENTLY ASKED QUESTIONS",
         faq1Question: "WHAT BROWSERS ARE COMPATIBLE?",
         faq1Answer: "Chrome, Edge, and Opera in their latest versions. Firefox and Safari do not yet support Web Serial API.",
         faq2Question: "DO I NEED TO INSTALL DRIVERS?",
@@ -73,13 +73,16 @@ const translations = {
         faq4Question: "WHAT DO I DO IF INSTALLATION FAILS?",
         faq4Answer: "Try holding down the BOOT button on the ESP32 while connecting USB, then release and try again.",
         
+        // Changelog
+        changelogTitle: "CHANGELOG",
+        
         // Donate
-        donateTitle: ">> SUPPORT THE PROJECT",
+        donateTitle: "SUPPORT THE PROJECT",
         donateDescription: "If you find this project useful, consider supporting its development. Your donations help maintain and improve the firmware!",
         donateBitcoin: "Bitcoin (BTC)",
         donateEthereum: "Ethereum (ETH)",
         donateMonero: "Monero (XMR)",
-        donateNote: "⚡ All donations are greatly appreciated and help keep this project alive!",
+        donateNote: "All donations are greatly appreciated and help keep this project alive!",
         
         // Footer
         footerDeveloped: "Developed by",
@@ -92,7 +95,7 @@ const translations = {
         githubLink: "REPOSITORIO GITHUB",
         
         // Flash Section
-        flashTitle: ">> FLASHEAR FIRMWARE",
+        flashTitle: "FLASHEAR FIRMWARE",
         flashDescription: "Conecta tu ESP32 CYD por USB y haz clic en el botón para instalar el firmware directamente desde tu navegador.",
         flashButton: "CONECTAR Y FLASHEAR",
         flashUnsupported: "⚠️ Tu navegador no soporta Web Serial API. Usa Chrome, Edge o Opera.",
@@ -100,9 +103,9 @@ const translations = {
         
         // Requirements
         requirementsTitle: "REQUISITOS",
-        requirement1: "✅ Navegador compatible: Chrome, Edge, Opera (con Web Serial API)",
-        requirement2: "✅ ESP32-2432S028R (CYD) conectado por USB",
-        requirement3: "✅ Driver CH340/CP2102 instalado (si es necesario)",
+        requirement1: "Navegador compatible: Chrome, Edge, Opera (con Web Serial API)",
+        requirement2: "ESP32-2432S028R (CYD) conectado por USB",
+        requirement3: "Driver CH340/CP2102 instalado (si es necesario)",
         
         // Features
         featuresTitle: "CARACTERÍSTICAS",
@@ -120,7 +123,7 @@ const translations = {
         feature6Desc: "Servidor web integrado para control remoto y configuración.",
         
         // Specs
-        specsTitle: ">> ESPECIFICACIONES TÉCNICAS",
+        specsTitle: "ESPECIFICACIONES TÉCNICAS",
         specBoard: "PLACA",
         specBoardValue: "ESP32-2432S028R (Cheap Yellow Display)",
         specDisplay: "PANTALLA",
@@ -135,7 +138,7 @@ const translations = {
         specConnectivityValue: "WiFi 802.11 b/g/n, Bluetooth 4.2",
         
         // Instructions
-        instructionsTitle: ">> INSTRUCCIONES DE INSTALACIÓN",
+        instructionsTitle: "INSTRUCCIONES DE INSTALACIÓN",
         instruction1Title: "CONECTA TU ESP32 CYD",
         instruction1Desc: "Conecta el dispositivo a tu computadora usando un cable USB. Asegúrate de que los drivers estén instalados.",
         instruction2Title: "HAZ CLIC EN \"CONECTAR Y FLASHEAR\"",
@@ -148,7 +151,7 @@ const translations = {
         instruction5Desc: "Una vez completado, el ESP32 se reiniciará automáticamente con el nuevo firmware.",
         
         // FAQ
-        faqTitle: ">> PREGUNTAS FRECUENTES",
+        faqTitle: "PREGUNTAS FRECUENTES",
         faq1Question: "¿QUÉ NAVEGADORES SON COMPATIBLES?",
         faq1Answer: "Chrome, Edge, y Opera en sus últimas versiones. Firefox y Safari aún no soportan Web Serial API.",
         faq2Question: "¿NECESITO INSTALAR DRIVERS?",
@@ -159,12 +162,15 @@ const translations = {
         faq4Answer: "Intenta mantener presionado el botón BOOT en el ESP32 mientras conectas el USB, luego suéltalo y vuelve a intentar.",
         
         // Donate
-        donateTitle: ">> APOYA EL PROYECTO",
+        donateTitle: "APOYA EL PROYECTO",
         donateDescription: "Si encuentras útil este proyecto, considera apoyar su desarrollo. ¡Tus donaciones ayudan a mantener y mejorar el firmware!",
         donateBitcoin: "Bitcoin (BTC)",
         donateEthereum: "Ethereum (ETH)",
         donateMonero: "Monero (XMR)",
-        donateNote: "⚡ ¡Todas las donaciones son muy apreciadas y ayudan a mantener este proyecto vivo!",
+        donateNote: "¡Todas las donaciones son muy apreciadas y ayudan a mantener este proyecto vivo!",
+        
+        // Changelog
+        changelogTitle: "HISTORIAL DE CAMBIOS",
         
         // Footer
         footerDeveloped: "Desarrollado por",
@@ -324,6 +330,9 @@ class LanguageSwitcher {
                 if (p) p.textContent = faqData[i].answer;
             }
         });
+        
+        // Changelog Section
+        this.updateElement('.changelog-section h2', t.changelogTitle);
         
         // Donate Section
         this.updateElement('.donate-section h2', t.donateTitle);
