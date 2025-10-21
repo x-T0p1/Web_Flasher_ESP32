@@ -503,6 +503,172 @@ header h1 {
     gap: var(--spacing-lg);
 }
 
+/* === GALLERY CAROUSEL === */
+.gallery-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.gallery-description {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-md);
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 2px solid var(--primary-green);
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* 4:3 aspect ratio for ESP32 display (320x240) */
+    overflow: hidden;
+}
+
+.carousel-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    position: relative;
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: var(--primary-green);
+    font-family: var(--font-heading);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Carousel Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 255, 65, 0.1);
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-button:hover {
+    background: rgba(0, 255, 65, 0.3);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-button-prev {
+    left: var(--spacing-md);
+}
+
+.carousel-button-next {
+    right: var(--spacing-md);
+}
+
+.carousel-button span {
+    display: block;
+    margin-top: -4px;
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: var(--spacing-md);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-sm);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-green);
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.carousel-indicator:hover {
+    background: rgba(0, 255, 65, 0.5);
+    transform: scale(1.2);
+}
+
+.carousel-indicator.active {
+    background: var(--primary-green);
+    box-shadow: 0 0 10px var(--primary-green);
+}
+
+/* Auto-play animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .feature-card {
     text-align: center;
     padding: var(--spacing-xl) var(--spacing-lg);
@@ -1024,6 +1190,37 @@ footer strong {
     .instructions-list li::before {
         position: static;
         margin-bottom: var(--spacing-sm);
+    }
+    
+    /* Carousel responsive */
+    .carousel-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .carousel-button-prev {
+        left: var(--spacing-xs);
+    }
+    
+    .carousel-button-next {
+        right: var(--spacing-xs);
+    }
+    
+    .carousel-indicators {
+        bottom: var(--spacing-xs);
+        padding: 4px var(--spacing-sm);
+        gap: var(--spacing-xs);
+    }
+    
+    .carousel-indicator {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .carousel-caption {
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-md) var(--spacing-sm) var(--spacing-xs);
     }
 }
 

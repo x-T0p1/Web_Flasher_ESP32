@@ -308,3 +308,149 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(generateQRCodes, 500);
 });
 */
+
+// === CAROUSEL FUNCTIONALITY ===
+
+let currentSlide = 0;
+let autoPlayInterval = null;
+const autoPlayDelay = 5000; // 5 seconds
+
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initCarousel();
+});
+
+function initCarousel() {
+    const track = document.getElementById('carouselTrack');
+    if (!track) return;
+
+    const slides = track.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+
+    // Create indicators
+    createIndicators(totalSlides);
+
+    // Show first slide
+    updateCarousel();
+
+    // Start auto-play
+    startAutoPlay();
+
+    // Pause auto-play on hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+        carouselContainer.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            carouselPrev();
+        } else if (e.key === 'ArrowRight') {
+            carouselNext();
+        }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoPlay();
+    });
+
+    carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoPlay();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchStartX - touchEndX > swipeThreshold) {
+            carouselNext(); // Swipe left
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            carouselPrev(); // Swipe right
+        }
+    }
+
+    console.log('%c[CAROUSEL] Initialized with ' + totalSlides + ' slides', 'color: #00ff41; font-family: monospace;');
+}
+
+function createIndicators(totalSlides) {
+    const indicatorsContainer = document.getElementById('carouselIndicators');
+    if (!indicatorsContainer) return;
+
+    indicatorsContainer.innerHTML = '';
+
+    for (let i = 0; i < totalSlides; i++) {
+        const indicator = document.createElement('div');
+        indicator.className = 'carousel-indicator';
+        if (i === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => goToSlide(i));
+        indicatorsContainer.appendChild(indicator);
+    }
+}
+
+function updateCarousel() {
+    const track = document.getElementById('carouselTrack');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    
+    if (!track) return;
+
+    const slides = track.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+
+    // Wrap around if needed
+    if (currentSlide >= totalSlides) currentSlide = 0;
+    if (currentSlide < 0) currentSlide = totalSlides - 1;
+
+    // Move track
+    const offset = -currentSlide * 100;
+    track.style.transform = `translateX(${offset}%)`;
+
+    // Update indicators
+    indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+    });
+}
+
+function carouselNext() {
+    currentSlide++;
+    updateCarousel();
+    resetAutoPlay();
+}
+
+function carouselPrev() {
+    currentSlide--;
+    updateCarousel();
+    resetAutoPlay();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+    resetAutoPlay();
+}
+
+function startAutoPlay() {
+    if (autoPlayInterval) return; // Already playing
+    
+    autoPlayInterval = setInterval(() => {
+        carouselNext();
+    }, autoPlayDelay);
+}
+
+function stopAutoPlay() {
+    if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+    }
+}
+
+function resetAutoPlay() {
+    stopAutoPlay();
+    startAutoPlay();
+}

@@ -180,6 +180,55 @@
                 </div>
             </section>
 
+            <!-- Gallery Carousel Section -->
+            <section class="gallery-section">
+                <div class="card">
+                    <h2>FIRMWARE IN ACTION</h2>
+                    <p class="gallery-description">Explore the user interface and features of the TOP1 Firmware running on ESP32 CYD</p>
+                    
+                    <div class="carousel-container">
+                        <div class="carousel-wrapper">
+                            <div class="carousel-track" id="carouselTrack">
+                                <!-- Slides will be dynamically loaded -->
+                                <div class="carousel-slide">
+                                    <img src="img/board/cyd/ui/main-menu.png" alt="Main Menu Interface" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'240\' viewBox=\'0 0 320 240\'%3E%3Crect width=\'320\' height=\'240\' fill=\'%23050805\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff41\' font-family=\'monospace\' font-size=\'14\'%3EMain Menu%3C/text%3E%3C/svg%3E'">
+                                    <div class="carousel-caption">Main Menu</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/board/cyd/ui/wifi-scanner.png" alt="WiFi Scanner" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'240\' viewBox=\'0 0 320 240\'%3E%3Crect width=\'320\' height=\'240\' fill=\'%23050805\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff41\' font-family=\'monospace\' font-size=\'14\'%3EWiFi Scanner%3C/text%3E%3C/svg%3E'">
+                                    <div class="carousel-caption">WiFi Scanner</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/board/cyd/ui/deauth-detection.png" alt="Deauth Detection" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'240\' viewBox=\'0 0 320 240\'%3E%3Crect width=\'320\' height=\'240\' fill=\'%23050805\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff41\' font-family=\'monospace\' font-size=\'14\'%3EDeauth Detection%3C/text%3E%3C/svg%3E'">
+                                    <div class="carousel-caption">Deauth Detection</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/board/cyd/ui/bluetooth-scan.png" alt="Bluetooth Scanner" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'240\' viewBox=\'0 0 320 240\'%3E%3Crect width=\'320\' height=\'240\' fill=\'%23050805\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff41\' font-family=\'monospace\' font-size=\'14\'%3EBluetooth Scanner%3C/text%3E%3C/svg%3E'">
+                                    <div class="carousel-caption">Bluetooth Scanner</div>
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/board/cyd/ui/settings.png" alt="Settings Menu" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'320\' height=\'240\' viewBox=\'0 0 320 240\'%3E%3Crect width=\'320\' height=\'240\' fill=\'%23050805\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2300ff41\' font-family=\'monospace\' font-size=\'14\'%3ESettings%3C/text%3E%3C/svg%3E'">
+                                    <div class="carousel-caption">Settings Menu</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Controls -->
+                        <button class="carousel-button carousel-button-prev" onclick="carouselPrev()" aria-label="Previous slide">
+                            <span>‹</span>
+                        </button>
+                        <button class="carousel-button carousel-button-next" onclick="carouselNext()" aria-label="Next slide">
+                            <span>›</span>
+                        </button>
+
+                        <!-- Indicators -->
+                        <div class="carousel-indicators" id="carouselIndicators">
+                            <!-- Dots will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Specs Section -->
             <section class="specs-section">
                 <div class="card">

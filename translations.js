@@ -34,6 +34,10 @@ const translations = {
         feature6Title: "WEB SERVER",
         feature6Desc: "Integrated web server for remote control and configuration.",
         
+        // Gallery
+        galleryTitle: "FIRMWARE IN ACTION",
+        galleryDescription: "Explore the user interface and features of the TOP1 Firmware running on ESP32 CYD",
+        
         // Specs
         specsTitle: "TECHNICAL SPECIFICATIONS",
         specBoard: "BOARD",
@@ -121,6 +125,10 @@ const translations = {
         feature5Desc: "Almacenamiento de logs y datos en tarjeta SD integrada.",
         feature6Title: "SERVIDOR WEB",
         feature6Desc: "Servidor web integrado para control remoto y configuración.",
+        
+        // Gallery
+        galleryTitle: "FIRMWARE EN ACCIÓN",
+        galleryDescription: "Explora la interfaz de usuario y funciones del firmware TOP1 ejecutándose en ESP32 CYD",
         
         // Specs
         specsTitle: "ESPECIFICACIONES TÉCNICAS",
@@ -273,6 +281,10 @@ class LanguageSwitcher {
                 if (p) p.textContent = featureData[i].desc;
             }
         });
+        
+        // Gallery
+        this.updateElement('.gallery-section h2', t.galleryTitle);
+        this.updateElement('.gallery-description', t.galleryDescription);
         
         // Specs
         this.updateElement('.specs-section h2', t.specsTitle);
